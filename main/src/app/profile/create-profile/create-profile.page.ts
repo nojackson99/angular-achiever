@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { NavController } from '@ionic/angular';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-create-profile',
@@ -13,7 +14,8 @@ export class CreateProfilePage implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    public navController: NavController) { }
+    public navController: NavController,
+    private profileService: ProfileService) { }
 
   ngOnInit() {
     this.createProfileForm = this.formBuilder.group({
@@ -27,9 +29,14 @@ export class CreateProfilePage implements OnInit {
     if (!this.createProfileForm.valid) {
       console.log("Please provide all required inputs")
       return false;
-    } else {
-      console.log(this.createProfileForm.value)
     }
+
+    // Add form values to profile array through ProfileService.
+    this.profileService.addProfile(
+      this.createProfileForm.value.email,
+      this.createProfileForm.value.password
+    )
+
     // Navigate back to home page, wipes nav stack, home page is new root.
     this.navController.navigateRoot('/');
   }

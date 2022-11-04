@@ -13,7 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'create-profile',
-    loadChildren: () => import('./create-profile/create-profile.module').then( m => m.CreateProfilePageModule)
+    loadChildren: () => import('./profile/create-profile/create-profile.module').then(m => m.CreateProfilePageModule)
+  },
+  {
+    path: 'sign-in',
+    loadChildren: () => import('./profile/sign-in/sign-in.module').then(m => m.SignInPageModule)
   },
 ];
 
