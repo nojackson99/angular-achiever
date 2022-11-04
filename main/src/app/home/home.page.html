@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!-- [] todo: set up app wide color scheme  -->
+  <ion-toolbar color="tertiary">
     <ion-title>
-      Blank
+      Homepage
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- [] todo: fix the grid -->
+  <!-- homepage message should take up top half of screen -->
+  <!-- each button can take up 25% of bottom -->
+  <ion-grid>
+    <ion-row size="4">
+      <ion-col>
+        <div id="container">
+          <strong>Welcome to Angular Achiever Home Page!</strong>
+          <p>great things are going to happen :)</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button size="Large" color="tertiary">Sign In!</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button size="Large" color="tertiary">Create A Profile!</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+
 </ion-content>
