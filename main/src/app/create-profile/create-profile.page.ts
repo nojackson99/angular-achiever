@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-create-profile',
@@ -10,9 +11,9 @@ export class CreateProfilePage implements OnInit {
   isSubmitted = false;
   createProfileForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
-
-  }
+  constructor(
+    public formBuilder: FormBuilder,
+    public navController: NavController) { }
 
   ngOnInit() {
     this.createProfileForm = this.formBuilder.group({
@@ -29,6 +30,8 @@ export class CreateProfilePage implements OnInit {
     } else {
       console.log(this.createProfileForm.value)
     }
+    // Navigate back to home page, wipes nav stack, home page is new root.
+    this.navController.navigateRoot('/');
   }
 
   get errorControl() {
