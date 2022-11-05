@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'sign-in',
     loadChildren: () => import('./profile/sign-in/sign-in.module').then(m => m.SignInPageModule)
-  },
+  }
 ];
 
 @NgModule({
