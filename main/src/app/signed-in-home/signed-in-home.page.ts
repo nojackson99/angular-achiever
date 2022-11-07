@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile/profile.service';
 
 @Component({
   selector: 'app-signed-in-home',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signed-in-home.page.scss'],
 })
 export class SignedInHomePage implements OnInit {
+  activeProfileEmail: string = null;
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.activeProfileEmail = this.profileService.activeProfile.email
   }
 
 }

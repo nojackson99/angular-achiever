@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <!-- [] todo: add sign out button -->
-    <ion-title>signed-in-home</ion-title>
+    <ion-title>Welcome {{ activeProfileEmail }}!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="solid" color="danger">Sign Out</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
