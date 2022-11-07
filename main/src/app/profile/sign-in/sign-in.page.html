@@ -21,10 +21,13 @@
               <ion-input formControlName="email" type="text" required></ion-input>
             </ion-item>
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-              Email is required.
+              Email is required.<br>
             </span>
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email">
               Input must be in the form of an email.
+            </span>
+            <span class="error ion-padding" *ngIf="signInFailed === true">
+              Login or password is invalid.
             </span>
             <ion-item lines="full">
               <!-- [] todo: default hidden with icon to show/hide text -->
@@ -33,7 +36,10 @@
               <ion-input formControlName="password" type="text" required></ion-input>
             </ion-item>
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
-              Password is required.
+              Password is required.<br>
+            </span>
+            <span class="error ion-padding" *ngIf="signInFailed === true">
+              Login or password is invalid.
             </span>
             <ion-row>
               <ion-col>
