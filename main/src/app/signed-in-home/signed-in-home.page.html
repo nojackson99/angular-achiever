@@ -1,13 +1,18 @@
-<ion-header>
-  <ion-toolbar color="tertiary">
-    <!-- [] todo: add sign out button -->
-    <ion-title>Welcome {{ activeProfileEmail }}!</ion-title>
-    <ion-buttons slot="end">
-      <ion-button fill="solid" color="danger">Sign Out</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-label>Home</ion-label>
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="budget">
+        <ion-label>Budget</ion-label>
+        <ion-icon name="cash"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="tasks">
+        <ion-label>Tasks</ion-label>
+        <ion-icon name="checkbox"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>

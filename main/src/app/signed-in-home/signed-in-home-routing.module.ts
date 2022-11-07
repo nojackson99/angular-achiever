@@ -5,13 +5,27 @@ import { SignedInHomePage } from './signed-in-home.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: SignedInHomePage
-  }
+    path: 'tabs',
+    component: SignedInHomePage,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+      },
+      {
+        path: 'tasks',
+        loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksPageModule)
+      },
+      {
+        path: 'budget',
+        loadChildren: () => import('./budget/budget.module').then(m => m.BudgetPageModule)
+      }
+    ]
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SignedInHomePageRoutingModule {}
+export class SignedInHomePageRoutingModule { }

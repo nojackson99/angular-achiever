@@ -21,8 +21,8 @@ export class SignInPage implements OnInit {
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      email: ['nojackson99@gmail.com', [Validators.required, Validators.email]],
+      password: ['password', [Validators.required]]
     })
   }
 
@@ -50,7 +50,7 @@ export class SignInPage implements OnInit {
     //sign in was successful
     if (signInSucceeded) {
       //route to signed-in-landing page
-      this.navController.navigateForward('/signed-in-home')
+      this.navController.navigateForward('/signed-in-home/tabs/home')
 
       return signInSucceeded
     }

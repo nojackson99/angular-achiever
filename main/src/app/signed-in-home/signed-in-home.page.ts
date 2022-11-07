@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ProfileService } from '../profile/profile.service';
 
 @Component({
@@ -7,12 +8,10 @@ import { ProfileService } from '../profile/profile.service';
   styleUrls: ['./signed-in-home.page.scss'],
 })
 export class SignedInHomePage implements OnInit {
-  activeProfileEmail: string = null;
-
-  constructor(private profileService: ProfileService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.activeProfileEmail = this.profileService.activeProfile.email
+
   }
 
 }

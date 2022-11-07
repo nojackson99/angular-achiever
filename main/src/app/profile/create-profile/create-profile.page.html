@@ -19,6 +19,14 @@
           and navigates back to the homepage -->
           <form [formGroup]="createProfileForm" (ngSubmit)="submitForm()">
             <ion-item lines="full">
+              <ion-label position="floating">First Name</ion-label>
+              <ion-input formControlName="fname" type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full">
+              <ion-label position="floating">Last Name</ion-label>
+              <ion-input formControlName="lname" type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full">
               <ion-label position="floating">Email</ion-label>
               <ion-input formControlName="email" type="text" required></ion-input>
             </ion-item>
@@ -32,7 +40,7 @@
               <!-- [] todo: default hidden with icon to show/hide text -->
               <!-- tutorial: https://medium.com/learn-ionic-framework/create-a-show-hide-password-component-in-ionic-angular-a3960094726a -->
               <ion-label position="floating">Password</ion-label>
-              <ion-input formControlName="password" type="password" required></ion-input>
+              <ion-input formControlName="password" type="text" required></ion-input>
             </ion-item>
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
               Password is required.

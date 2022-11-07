@@ -19,6 +19,8 @@ export class CreateProfilePage implements OnInit {
 
   ngOnInit() {
     this.createProfileForm = this.formBuilder.group({
+      fname: [''],
+      lname: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
@@ -33,6 +35,8 @@ export class CreateProfilePage implements OnInit {
 
     // Add form values to profile array through ProfileService.
     this.profileService.addProfile(
+      this.createProfileForm.value.fname,
+      this.createProfileForm.value.lname,
       this.createProfileForm.value.email,
       this.createProfileForm.value.password
     )
