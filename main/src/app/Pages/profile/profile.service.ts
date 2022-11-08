@@ -92,7 +92,26 @@ export class ProfileService {
 
   // set activeProfile for Profile Service
   setActiveProfile(profileToSet: Profile): Profile {
+    // save activeProfile to local storage
+    this.saveActiveProfile(profileToSet);
+
     return profileToSet;
+  }
+
+  // save active profile to local storage
+  // load active profile in other pages if null;
+  saveActiveProfile(newActiveProfile): void {
+    const jsonData = JSON.stringify(newActiveProfile);
+    localStorage.setItem('activeProfile', jsonData);
+
+    return;
+  }
+
+  loadActiveProfile(): void {
+    const jsonData = localStorage.getItem('activeProfile');
+
+    console.log(jsonData);
+    console.log(jsonData);
   }
 
   //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION

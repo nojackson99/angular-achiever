@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeProfileFirstName = this.profileService.activeProfile.fname;
+    this.activeProfileFirstName = this.checkActiveProfile();
   }
 
   signOut() {
@@ -34,5 +34,13 @@ export class HomePage implements OnInit {
       .subscribe((data) => console.log(data));
 
     console.log(`testResponse is: ${this.testResponse}`);
+  }
+
+  checkActiveProfile(): string {
+    if (this.profileService.activeProfile == null) {
+      this.profileService.loadActiveProfile();
+    }
+
+    return this.profileService.activeProfile.fname;
   }
 }
