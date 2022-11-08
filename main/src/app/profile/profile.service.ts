@@ -1,11 +1,17 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Profile } from './profile.modal';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
+  // test variable to hold transmit postTets response
+  // need an actual value that is updated so that subscribe side can receive check
+  // the update?
+  public postTestObservable = new Subject<string>();
   // Signed in profile
   public activeProfile: Profile;
   // tracks number of created profiles for id purposes.
@@ -36,7 +42,9 @@ export class ProfileService {
   ]
   public currentProfile: Profile;
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.createdProfiles = this.profiles.length;
   }
 
@@ -65,6 +73,9 @@ export class ProfileService {
     )
   }
 
+  // accept email and password from sign in screen. Search profiles array
+  // for profile that matches passed in credentials. Return bool on login
+  // success or fail.
   checkCredentials(email: string, pass: string): boolean {
     let matchedProfile: Profile = null;
     console.log(`email is ${email}`);
@@ -87,8 +98,33 @@ export class ProfileService {
     }
   }
 
+  // set activeProfile for Profile Service
   setActiveProfile(profileToSet: Profile): Profile {
     return profileToSet;
+  }
+
+  // called from home-tab model
+  // calls postActiveProfile and receives response
+  // testLambdaCall() {
+  //   let response: any = null
+
+  //   response = this.postActiveProfile();
+
+  //   // must call next on observable here?
+  //   // this.postTestObservable.next();
+  // }
+
+  // executes lambda http call
+  postActiveProfile(): any {
+    const url = 'https://565zbmyxbcjahcgke52a64ktie0jrojz.lambda-url.us-east-2.on.aws/';
+
+    console.log("in test lambda call")
+
+    return this.http
+      .post<string>(
+        url,
+        { ...this.activeProfile },
+      )
   }
 
 }

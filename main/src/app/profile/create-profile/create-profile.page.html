@@ -17,6 +17,7 @@
           <!-- form with email and password -->
           <!-- on submit crates a new password in global profile object
           and navigates back to the homepage -->
+          <!-- [] todo: investigate template forms instead of reactive forms -->
           <form [formGroup]="createProfileForm" (ngSubmit)="submitForm()">
             <ion-item lines="full">
               <ion-label position="floating">First Name</ion-label>

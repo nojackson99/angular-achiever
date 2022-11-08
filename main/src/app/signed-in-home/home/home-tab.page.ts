@@ -4,11 +4,12 @@ import { ProfileService } from 'src/app/profile/profile.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: './home-tab.page.html',
+  styleUrls: ['./home-tab.page.scss'],
 })
 export class HomePage implements OnInit {
   activeProfileFirstName: string = null;
+  testResponse: any = null;
 
   constructor(
     private profileService: ProfileService,
@@ -23,6 +24,13 @@ export class HomePage implements OnInit {
     this.profileService.activeProfile = null;
 
     this.navController.navigateRoot('/')
+  }
+
+  sendDataToLambda() {
+    this.profileService.postActiveProfile()
+      .subscribe(data => console.log(data))
+
+    console.log(`testResponse is: ${this.testResponse}`)
   }
 
 }

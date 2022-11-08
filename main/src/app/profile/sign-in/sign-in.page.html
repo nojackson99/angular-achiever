@@ -15,6 +15,7 @@
         </ion-card-header>
         <ion-card-content>
           <!-- [] todo: modularize this form and use as create profile and log in -->
+          <!-- [] todo: investigate template forms instead of reactive forms -->
           <form [formGroup]="signInForm" (ngSubmit)="submitForm()">
             <ion-item lines="full">
               <ion-label position="floating">Email</ion-label>
