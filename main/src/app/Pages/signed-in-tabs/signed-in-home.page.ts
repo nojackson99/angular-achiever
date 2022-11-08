@@ -8,10 +8,7 @@ import { ProfileService } from '../profile/profile.service';
   styleUrls: ['./signed-in-home.page.scss'],
 })
 export class SignedInHomePage implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ProfileService } from 'src/app/profile/profile.service';
+import { ProfileService } from 'src/app/Pages/profile/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -13,24 +13,26 @@ export class HomePage implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private navController: NavController) { }
+    private navController: NavController
+  ) {}
 
   ngOnInit() {
-    this.activeProfileFirstName = this.profileService.activeProfile.fname
+    this.activeProfileFirstName = this.profileService.activeProfile.fname;
   }
 
   signOut() {
     // sign out active profile
     this.profileService.activeProfile = null;
 
-    this.navController.navigateRoot('/')
+    this.navController.navigateRoot('/');
   }
 
+  //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
   sendDataToLambda() {
-    this.profileService.postActiveProfile()
-      .subscribe(data => console.log(data))
+    this.profileService
+      .postActiveProfile()
+      .subscribe((data) => console.log(data));
 
-    console.log(`testResponse is: ${this.testResponse}`)
+    console.log(`testResponse is: ${this.testResponse}`);
   }
-
 }

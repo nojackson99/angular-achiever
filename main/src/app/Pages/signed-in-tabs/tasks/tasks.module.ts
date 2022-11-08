@@ -9,12 +9,7 @@ import { TasksPageRoutingModule } from './tasks-routing.module';
 import { TasksPage } from './tasks.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    TasksPageRoutingModule
-  ],
-  declarations: [TasksPage]
+  imports: [CommonModule, FormsModule, IonicModule, TasksPageRoutingModule],
+  declarations: [TasksPage],
 })
 export class TasksPageModule {}

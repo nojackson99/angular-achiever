@@ -5,13 +5,9 @@ import { Profile } from './profile.modal';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
-  // test variable to hold transmit postTets response
-  // need an actual value that is updated so that subscribe side can receive check
-  // the update?
-  public postTestObservable = new Subject<string>();
   // Signed in profile
   public activeProfile: Profile;
   // tracks number of created profiles for id purposes.
@@ -22,29 +18,26 @@ export class ProfileService {
       lname: 'Jackson',
       id: 'p1',
       email: 'amiDog20@dogmail.com',
-      password: 'amiTheDog'
+      password: 'amiTheDog',
     },
     {
       fname: 'test',
       lname: 'test',
       id: 'p2',
       email: 'test@test.com',
-      password: 'password'
+      password: 'password',
     },
     {
       fname: 'Noah',
       lname: 'Jackson',
       id: 'p3',
       email: 'nojackson99@gmail.com',
-      password: 'password'
-    }
-
-  ]
+      password: 'password',
+    },
+  ];
   public currentProfile: Profile;
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
     this.createdProfiles = this.profiles.length;
   }
 
@@ -62,15 +55,13 @@ export class ProfileService {
     console.log(stringID);
 
     // Push new profile to profiles array.
-    this.profiles.push(
-      {
-        fname: fname,
-        lname: lname,
-        id: stringID,
-        email: email,
-        password: pass
-      }
-    )
+    this.profiles.push({
+      fname: fname,
+      lname: lname,
+      id: stringID,
+      email: email,
+      password: pass,
+    });
   }
 
   // accept email and password from sign in screen. Search profiles array
@@ -79,21 +70,22 @@ export class ProfileService {
   checkCredentials(email: string, pass: string): boolean {
     let matchedProfile: Profile = null;
     console.log(`email is ${email}`);
-    console.log(`password is ${pass}`)
+    console.log(`password is ${pass}`);
 
     // search profiles[] for element that matches passed in email and pass
-    matchedProfile = this.profiles.find(profile =>
-      (profile.email == email) && (profile.password == pass))
+    matchedProfile = this.profiles.find(
+      (profile) => profile.email == email && profile.password == pass
+    );
 
     // if matching profile was found matchedProfile will not be null
     // set as active profile and inform sign-in.page by returning true
     if (matchedProfile != null) {
-      this.activeProfile = this.setActiveProfile(matchedProfile)
-      console.log("sign in succeeded")
+      this.activeProfile = this.setActiveProfile(matchedProfile);
+      console.log('sign in succeeded');
       console.log(this.activeProfile);
       return true;
     } else {
-      console.log("credentials did not match");
+      console.log('credentials did not match');
       return false;
     }
   }
@@ -103,28 +95,14 @@ export class ProfileService {
     return profileToSet;
   }
 
-  // called from home-tab model
-  // calls postActiveProfile and receives response
-  // testLambdaCall() {
-  //   let response: any = null
-
-  //   response = this.postActiveProfile();
-
-  //   // must call next on observable here?
-  //   // this.postTestObservable.next();
-  // }
-
+  //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
   // executes lambda http call
   postActiveProfile(): any {
-    const url = 'https://565zbmyxbcjahcgke52a64ktie0jrojz.lambda-url.us-east-2.on.aws/';
+    const url =
+      'https://565zbmyxbcjahcgke52a64ktie0jrojz.lambda-url.us-east-2.on.aws/';
 
-    console.log("in test lambda call")
+    console.log('in test lambda call');
 
-    return this.http
-      .post<string>(
-        url,
-        { ...this.activeProfile },
-      )
+    return this.http.post<string>(url, { ...this.activeProfile });
   }
-
 }

@@ -10,17 +10,20 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home-tab.module').then(m => m.HomePageModule)
+        loadChildren: () =>
+          import('./home/home-tab.module').then((m) => m.HomePageModule),
       },
       {
         path: 'tasks',
-        loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksPageModule)
+        loadChildren: () =>
+          import('./tasks/tasks.module').then((m) => m.TasksPageModule),
       },
       {
         path: 'budget',
-        loadChildren: () => import('./budget/budget.module').then(m => m.BudgetPageModule)
-      }
-    ]
+        loadChildren: () =>
+          import('./budget/budget.module').then((m) => m.BudgetPageModule),
+      },
+    ],
   },
 ];
 
@@ -28,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SignedInHomePageRoutingModule { }
+export class SignedInHomePageRoutingModule {}

@@ -13,8 +13,8 @@ import { SignedInHomePage } from './signed-in-home.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SignedInHomePageRoutingModule
+    SignedInHomePageRoutingModule,
   ],
-  declarations: [SignedInHomePage]
+  declarations: [SignedInHomePage],
 })
 export class SignedInHomePageModule {}
