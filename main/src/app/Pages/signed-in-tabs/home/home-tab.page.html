@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-title>Welcome {{ activeProfileFirstName }}!</ion-title>
+    <ion-title>Welcome {{ activeProfile.fname }}!</ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="solid" color="danger" (click)="signOut()">Sign Out</ion-button>
+      <ion-button fill="solid" color="danger" (click)="signOut()"
+        >Sign Out</ion-button
+      >
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +12,7 @@
 <ion-content>
   <ion-buttons>
     <div id="home-tab-test-button">
-      <ion-button fill="solid" color="tertiary" (click)="sendDataToLambda()">
+      <ion-button fill="solid" color="tertiary">
         Test send active profile to lambda
       </ion-button>
     </div>

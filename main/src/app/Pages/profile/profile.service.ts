@@ -8,39 +8,23 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProfileService {
+  //
+  activeProfileUpdated = new Subject<Profile>();
   // Signed in profile
   public activeProfile: Profile;
-  // tracks number of created profiles for id purposes.
-  private createdProfiles: number;
-  private profiles: Profile[] = [
-    {
-      fname: 'Ami',
-      lname: 'Jackson',
-      id: 'p1',
-      email: 'amiDog20@dogmail.com',
-      password: 'amiTheDog',
-    },
-    {
-      fname: 'test',
-      lname: 'test',
-      id: 'p2',
-      email: 'test@test.com',
-      password: 'password',
-    },
-    {
-      fname: 'Noah',
-      lname: 'Jackson',
-      id: 'p3',
-      email: 'nojackson99@gmail.com',
-      password: 'password',
-    },
-  ];
-  public currentProfile: Profile;
+  // Tracks number of created profiles for id purposes.
+  // [] todo: replace references to this var with get numberOfProfiles()
+  private createdProfiles: number = 0;
+  // Source of truth for locally stored profiles
+  private profiles: Profile[] = null;
 
   constructor(private http: HttpClient) {
-    this.createdProfiles = this.profiles.length;
+    this.profiles = this.savedProfiles;
+    this.createdProfiles = this.numberOfProfiles;
   }
 
+  // add profile to profiles array
+  // update local storage profile data
   addProfile(fname: string, lname: string, email: string, pass: string) {
     console.log('current profiles:' + this.createdProfiles);
     console.log(email + ' ' + pass);
@@ -54,14 +38,35 @@ export class ProfileService {
     const stringID: string = 'p' + this.createdProfiles.toString();
     console.log(stringID);
 
+    if (this.profiles) {
+      this.profiles.push({
+        fname: fname,
+        lname: lname,
+        id: stringID,
+        email: email,
+        password: pass,
+      });
+    } else {
+      this.profiles = [
+        {
+          fname: fname,
+          lname: lname,
+          id: stringID,
+          email: email,
+          password: pass,
+        },
+      ];
+    }
     // Push new profile to profiles array.
-    this.profiles.push({
-      fname: fname,
-      lname: lname,
-      id: stringID,
-      email: email,
-      password: pass,
-    });
+
+    // prep and set current profiles data to local storage
+    const jsonData = JSON.stringify(this.profiles);
+    localStorage.setItem('savedProfiles', jsonData);
+  }
+
+  get savedProfiles(): Profile[] {
+    const jsonData = localStorage.getItem('savedProfiles');
+    return JSON.parse(jsonData);
   }
 
   // accept email and password from sign in screen. Search profiles array
@@ -72,10 +77,14 @@ export class ProfileService {
     console.log(`email is ${email}`);
     console.log(`password is ${pass}`);
 
-    // search profiles[] for element that matches passed in email and pass
-    matchedProfile = this.profiles.find(
-      (profile) => profile.email == email && profile.password == pass
-    );
+    if (this.createdProfiles) {
+      // search profiles[] for element that matches passed in email and pass
+      matchedProfile = this.profiles.find(
+        (profile) => profile.email == email && profile.password == pass
+      );
+    } else {
+      return false;
+    }
 
     // if matching profile was found matchedProfile will not be null
     // set as active profile and inform sign-in.page by returning true
@@ -93,35 +102,42 @@ export class ProfileService {
   // set activeProfile for Profile Service
   setActiveProfile(profileToSet: Profile): Profile {
     // save activeProfile to local storage
-    this.saveActiveProfile(profileToSet);
+    this.postActiveProfile(profileToSet);
 
     return profileToSet;
   }
 
   // save active profile to local storage
   // load active profile in other pages if null;
-  saveActiveProfile(newActiveProfile): void {
+  postActiveProfile(newActiveProfile): void {
     const jsonData = JSON.stringify(newActiveProfile);
     localStorage.setItem('activeProfile', jsonData);
 
     return;
   }
 
-  loadActiveProfile(): void {
+  // load active profile from local storage
+  getActiveProfiles(): void {
     const jsonData = localStorage.getItem('activeProfile');
+    this.activeProfile = JSON.parse(jsonData);
+  }
 
-    console.log(jsonData);
-    console.log(jsonData);
+  get numberOfProfiles(): number {
+    if (!this.profiles) {
+      return 0;
+    }
+
+    return this.profiles.length;
   }
 
   //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
   // executes lambda http call
-  postActiveProfile(): any {
-    const url =
-      'https://565zbmyxbcjahcgke52a64ktie0jrojz.lambda-url.us-east-2.on.aws/';
+  // postActiveProfile(): any {
+  //   const url =
+  //     'https://565zbmyxbcjahcgke52a64ktie0jrojz.lambda-url.us-east-2.on.aws/';
 
-    console.log('in test lambda call');
+  //   console.log('in test lambda call');
 
-    return this.http.post<string>(url, { ...this.activeProfile });
-  }
+  //   return this.http.post<string>(url, { ...this.activeProfile });
+  // }
 }

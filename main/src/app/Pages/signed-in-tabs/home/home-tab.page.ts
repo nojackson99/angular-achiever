@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/Pages/profile/profile.service';
+import { Profile } from '../../profile/profile.modal';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { ProfileService } from 'src/app/Pages/profile/profile.service';
 })
 export class HomePage implements OnInit {
   activeProfileFirstName: string = null;
+  activeProfile: Profile = null;
   testResponse: any = null;
 
   constructor(
@@ -17,9 +19,10 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeProfileFirstName = this.checkActiveProfile();
+    this.activeProfile = this.ActiveProfile;
   }
 
+  // Clear active profile and return user to app home
   signOut() {
     // sign out active profile
     this.profileService.activeProfile = null;
@@ -27,20 +30,22 @@ export class HomePage implements OnInit {
     this.navController.navigateRoot('/');
   }
 
-  //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
-  sendDataToLambda() {
-    this.profileService
-      .postActiveProfile()
-      .subscribe((data) => console.log(data));
-
-    console.log(`testResponse is: ${this.testResponse}`);
-  }
-
-  checkActiveProfile(): string {
+  // Get active profile from profile.service
+  get ActiveProfile(): Profile {
     if (this.profileService.activeProfile == null) {
-      this.profileService.loadActiveProfile();
+      // Call function to retrieve active profile from local storage
+      this.profileService.getActiveProfiles();
     }
 
-    return this.profileService.activeProfile.fname;
+    return this.profileService.activeProfile;
   }
+
+  //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
+  // sendDataToLambda() {
+  //   this.profileService
+  //     .postActiveProfile()
+  //     .subscribe((data) => console.log(data));
+
+  //   console.log(`testResponse is: ${this.testResponse}`);
+  // }
 }
