@@ -9,12 +9,7 @@ import { BudgetPageRoutingModule } from './budget-routing.module';
 import { BudgetPage } from './budget.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    BudgetPageRoutingModule
-  ],
-  declarations: [BudgetPage]
+  imports: [CommonModule, FormsModule, IonicModule, BudgetPageRoutingModule],
+  declarations: [BudgetPage],
 })
 export class BudgetPageModule {}

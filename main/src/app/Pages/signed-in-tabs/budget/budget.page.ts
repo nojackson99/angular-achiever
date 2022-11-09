@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { disableDebugTools } from '@angular/platform-browser';
 import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/Pages/profile/profile.service';
 
@@ -26,5 +27,7 @@ export class BudgetPage implements OnInit {
     this.navController.navigateRoot('/');
   }
 
-  openModal() {}
+  openModal() {
+    //let dialogRef = dialog.open()
+  }
 }
