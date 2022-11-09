@@ -25,4 +25,6 @@ export class BudgetPage implements OnInit {
 
     this.navController.navigateRoot('/');
   }
+
+  openModal() {}
 }

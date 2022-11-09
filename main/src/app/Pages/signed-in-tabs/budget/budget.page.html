@@ -2,7 +2,17 @@
   <ion-toolbar color="tertiary">
     <ion-title>{{ activeProfileFirstName }}'s Budget</ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="solid" color="danger" (click)="signOut()">Sign Out</ion-button>
+      <ion-button fill="solid" color="danger" (click)="signOut()"
+        >Sign Out</ion-button
+      >
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-buttons>
+    <div>
+      <ion-button fill="solid" color="tertiary"> Create new week </ion-button>
+    </div>
+  </ion-buttons>
+</ion-content>
