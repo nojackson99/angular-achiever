@@ -10,6 +10,7 @@ import { ProfileService } from 'src/app/Pages/profile/profile.service';
 })
 export class BudgetPage implements OnInit {
   activeProfileFirstName: string = null;
+  modalIsOpen = false;
 
   constructor(
     private profileService: ProfileService,
@@ -29,5 +30,10 @@ export class BudgetPage implements OnInit {
 
   openModal() {
     //let dialogRef = dialog.open()
+    this.modalIsOpen = true;
+  }
+
+  closeModal() {
+    this.modalIsOpen = false;
   }
 }

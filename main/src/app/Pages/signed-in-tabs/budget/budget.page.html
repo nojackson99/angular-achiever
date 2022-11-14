@@ -16,5 +16,8 @@
         Create new week
       </ion-button>
     </div>
+    <div *ngIf="modalIsOpen">
+      <new-budget-modal (onCloseModal)="closeModal()"> </new-budget-modal>
+    </div>
   </ion-buttons>
 </ion-content>
