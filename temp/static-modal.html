@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .jw-modal-wrapper {
+        display: none;
+      }
+
+      .jw-modal-background {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: #000;
+        opacity: 0.75;
+
+        /* sets z axis so that background is in front of page but behind modal */
+        z-index: 900;
+      }
+
+      .jw-modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 1000;
+      }
+
+      .jw-modal-body {
+        padding: 20px;
+        background: #fff;
+
+        margin: 40px;
+      }
+
+      body.jw-modal-open {
+        overflow: hidden;
+      }
+    </style>
+    <script>
+      function openModal() {
+        document.getElementById('test-modal').style.display = 'block';
+        document.body.classList.add('jw-modal-open');
+      }
+
+      function closeModal() {
+        document.getElementById('test-modal').style.display = 'none';
+        document.body.classList.remove('jw-modal-open');
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Static Modal Example</h1>
+
+    <p><button onclick="openModal()">Open Modal</button></p>
+
+    <div class="jw-modal-wrapper" id="test-modal">
+      <div class="jw-modal">
+        <div class="jw-modal-body">
+          <p>modal body text</p>
+          <p> <button onclick="closeModal()"> close modal</button> </p>
+        </div>
+      </div>
+      <div class="jw-modal-background"> </div>
+    </div>
+  </body>
+</html>
