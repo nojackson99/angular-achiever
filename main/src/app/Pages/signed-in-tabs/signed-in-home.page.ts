@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { ProfileService } from '../profile/profile.service';
 
 @Component({
   selector: 'app-signed-in-home',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/Pages/profile/profile.service';
-import { Profile } from '../../profile/profile.modal';
+import { Profile } from '../../profile/profile.modle';
 
 @Component({
   selector: 'app-home',

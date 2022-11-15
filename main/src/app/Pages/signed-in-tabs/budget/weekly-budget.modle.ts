@@ -1,4 +1,4 @@
-import { Expense } from './expense.modal';
+import { Expense } from './expense.modle';
 
 export interface WeeklyBudget {
   startingDate: Date;

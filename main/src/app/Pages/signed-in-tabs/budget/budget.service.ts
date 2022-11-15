@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WeeklyBudget } from './weekly-budget.modal';
+import { WeeklyBudget } from './weekly-budget.modle';
 
 @Injectable({
   providedIn: 'root',

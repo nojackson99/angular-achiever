@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Profile } from './profile.modal';
+import { Profile } from './profile.modle';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
