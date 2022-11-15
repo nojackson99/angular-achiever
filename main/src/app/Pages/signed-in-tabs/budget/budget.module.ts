@@ -8,9 +8,17 @@ import { BudgetPageRoutingModule } from './budget-routing.module';
 
 import { BudgetPage } from './budget.page';
 import { NewBudgetModalComponent } from 'src/app/Components/new-budget-modal/new-budget-modal.component';
+import { NewBudgetDialogComponent } from 'src/app/Components/new-budget-dialog/new-budget-dialog.component';
+import { MaterialModule } from 'src/app/Material/material.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, BudgetPageRoutingModule],
-  declarations: [BudgetPage, NewBudgetModalComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    BudgetPageRoutingModule,
+    MaterialModule,
+  ],
+  declarations: [BudgetPage, NewBudgetModalComponent, NewBudgetDialogComponent],
 })
 export class BudgetPageModule {}

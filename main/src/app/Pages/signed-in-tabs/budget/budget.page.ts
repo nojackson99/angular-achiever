@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { disableDebugTools } from '@angular/platform-browser';
 import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/Pages/profile/profile.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NewBudgetDialogComponent } from 'src/app/Components/new-budget-dialog/new-budget-dialog.component';
 
 @Component({
   selector: 'app-budget',
@@ -14,7 +16,8 @@ export class BudgetPage implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private navController: NavController
+    private navController: NavController,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -35,5 +38,9 @@ export class BudgetPage implements OnInit {
 
   closeModal() {
     this.modalIsOpen = false;
+  }
+
+  openDialog() {
+    this.dialog.open(NewBudgetDialogComponent);
   }
 }
