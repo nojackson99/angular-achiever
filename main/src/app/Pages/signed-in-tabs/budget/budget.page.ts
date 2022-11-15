@@ -31,15 +31,6 @@ export class BudgetPage implements OnInit {
     this.navController.navigateRoot('/');
   }
 
-  openModal() {
-    //let dialogRef = dialog.open()
-    this.modalIsOpen = true;
-  }
-
-  closeModal() {
-    this.modalIsOpen = false;
-  }
-
   openDialog() {
     this.dialog.open(NewBudgetDialogComponent);
   }
