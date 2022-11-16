@@ -1,3 +1,12 @@
-<p>
-  budget-form works!
-</p>
+<form #form="ngForm" (ngSubmit)="submit(form.value)">
+  New Weekly Budget<br />
+  <label for="startingDate">Starting Date</label>
+  <input type="date" name="startingDate" ngModel /><br />
+  <label for="spendingLimit">Spending Limit</label>
+  <input type="number" name="spendingLimit" ngModel /><br />
+  <label for="carryOver">Carry Over</label>
+  <input type="number" name="carryOver" ngModel /><br />
+  <label for="tempSavingsAmount">Temp. Savings Amount</label>
+  <input type="number" name="tempSavingsAmount" ngModel /> <br />
+  <button>Submit</button>
+</form>

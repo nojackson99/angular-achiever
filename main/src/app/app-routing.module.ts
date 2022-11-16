@@ -15,21 +15,21 @@ const routes: Routes = [
   {
     path: 'create-profile',
     loadChildren: () =>
-      import('./Pages/profile/create-profile/create-profile.module').then(
+      import('./pages/profile/create-profile/create-profile.module').then(
         (m) => m.CreateProfilePageModule
       ),
   },
   {
     path: 'sign-in',
     loadChildren: () =>
-      import('./Pages/profile/sign-in/sign-in.module').then(
+      import('./pages/profile/sign-in/sign-in.module').then(
         (m) => m.SignInPageModule
       ),
   },
   {
     path: 'signed-in-home',
     loadChildren: () =>
-      import('./Pages/signed-in-tabs/signed-in-home.module').then(
+      import('./pages/signed-in-tabs/signed-in-home.module').then(
         (m) => m.SignedInHomePageModule
       ),
   },

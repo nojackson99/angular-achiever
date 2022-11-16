@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { ProfileService } from '../profile.service';
+import { ProfileService } from '../../../services/profile.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,13 +22,14 @@ export class SignInPage implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     public navController: NavController,
-    private profileService: ProfileService) { }
+    private profileService: ProfileService
+  ) {}
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
       email: ['nojackson99@gmail.com', [Validators.required, Validators.email]],
-      password: ['password', [Validators.required]]
-    })
+      password: ['password', [Validators.required]],
+    });
   }
 
   // submit form values
@@ -31,7 +37,7 @@ export class SignInPage implements OnInit {
   submitForm(): boolean {
     this.isSubmitted = true;
     if (!this.signInForm.valid) {
-      console.log("Please provide all required inputs")
+      console.log('Please provide all required inputs');
       return false;
     }
 
@@ -42,17 +48,17 @@ export class SignInPage implements OnInit {
   // calls checkCredentials in ProfileService to attempt sign-in
   // returns bool to notify if sign in succeeded or failed.
   attemptSignIn(): boolean {
-    const signInSucceeded = this.profileService
-      .checkCredentials(
-        this.signInForm.value.email,
-        this.signInForm.value.password);
+    const signInSucceeded = this.profileService.checkCredentials(
+      this.signInForm.value.email,
+      this.signInForm.value.password
+    );
 
     //sign in was successful
     if (signInSucceeded) {
       //route to signed-in-landing page
-      this.navController.navigateForward('/signed-in-home/tabs/home')
+      this.navController.navigateForward('/signed-in-home/tabs/home');
 
-      return signInSucceeded
+      return signInSucceeded;
     }
     //sign in failed
     this.signInFailed = !signInSucceeded;

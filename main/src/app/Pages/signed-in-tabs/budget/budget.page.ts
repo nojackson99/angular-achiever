@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { disableDebugTools } from '@angular/platform-browser';
 import { NavController } from '@ionic/angular';
-import { ProfileService } from 'src/app/Pages/profile/profile.service';
+import { ProfileService } from 'src/app/services/profile.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NewBudgetDialogComponent } from 'src/app/Components/new-budget-dialog/new-budget-dialog.component';
+import { NewBudgetDialogComponent } from 'src/app/components/new-budget-dialog/new-budget-dialog.component';
 
 @Component({
   selector: 'app-budget',

@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { Profile } from './profile.modle';
-import { Subject, Observable } from 'rxjs';
+import { Profile } from '../models/profile.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
