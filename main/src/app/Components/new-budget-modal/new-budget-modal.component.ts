@@ -1,5 +1,6 @@
+//! NOT USED IN APP
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'new-budget-modal',

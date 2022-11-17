@@ -115,10 +115,14 @@ export class ProfileService {
     return;
   }
 
-  // load active profile from local storage
-  getActiveProfiles(): void {
-    const jsonData = localStorage.getItem('activeProfile');
-    this.activeProfile = JSON.parse(jsonData);
+  // Load active profile from cache or local storage
+  get ActiveProfile(): Profile {
+    if (this.activeProfile == null) {
+      const jsonData = localStorage.getItem('activeProfile');
+      this.activeProfile = JSON.parse(jsonData);
+      return this.activeProfile;
+    }
+    return this.activeProfile;
   }
 
   get numberOfProfiles(): number {

@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.component';
+import { Profile } from 'src/app/models/profile.model';
 
 @Component({
   selector: 'app-budget',
@@ -10,8 +11,7 @@ import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.
   styleUrls: ['./budget.page.scss'],
 })
 export class BudgetPage implements OnInit {
-  activeProfileFirstName: string = null;
-  modalIsOpen = false;
+  activeProfile: Profile = null;
 
   constructor(
     private profileService: ProfileService,
@@ -20,7 +20,7 @@ export class BudgetPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeProfileFirstName = this.profileService.activeProfile.fname;
+    this.activeProfile = this.profileService.ActiveProfile;
   }
 
   signOut() {
@@ -31,6 +31,9 @@ export class BudgetPage implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(BudgetFormComponent);
+    this.dialog.open(BudgetFormComponent, {
+      // add global style to dialog, defined in global.css
+      panelClass: 'no-padding',
+    });
   }
 }

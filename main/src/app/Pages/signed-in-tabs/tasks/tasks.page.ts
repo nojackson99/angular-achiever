@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Profile } from 'src/app/models/profile.model';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./tasks.page.scss'],
 })
 export class TasksPage implements OnInit {
-  activeProfileFirstName: string = null;
+  activeProfile: Profile = null;
 
   constructor(
     private profileService: ProfileService,
@@ -16,7 +17,7 @@ export class TasksPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeProfileFirstName = this.profileService.activeProfile.fname;
+    this.activeProfile = this.profileService.ActiveProfile;
   }
 
   signOut() {

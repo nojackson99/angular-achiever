@@ -10,16 +10,19 @@
     <strong>Welcome to Angular Achiever Home Page!</strong>
   </div>
   <div id="buttons-positioning">
+    <!-- Route to sign in page -->
     <div id="homepage-button">
       <ion-button routerLink="/sign-in" size="Large" color="tertiary"
         >Sign In!</ion-button
       >
     </div>
+    <!-- Route to create a profile page-->
     <div id="homepage-button">
       <ion-button routerLink="/create-profile" size="Large" color="tertiary"
         >Create A Profile!</ion-button
       >
     </div>
+    <!-- Clear chrome local storage -->
     <div id="homepage-button">
       <ion-button size="Large" color="tertiary" (click)="clearLocalStorage()">
         Clear local storage

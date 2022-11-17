@@ -9,7 +9,6 @@ export class HomePage {
   constructor() {}
 
   clearLocalStorage() {
-    console.log('in clear local storage');
     localStorage.clear();
   }
 }

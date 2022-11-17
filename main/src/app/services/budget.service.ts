@@ -13,19 +13,25 @@ import { DateExtend } from '../util/dateExtend';
 export class BudgetService {
   // stores budget information for current active profile
   weeklyBudgets: WeeklyBudget[] = [];
-  displayedWeek: WeeklyBudget = null;
+  activeBudget: WeeklyBudget = null;
 
   constructor(private dateExtend: DateExtend) {}
 
+  // Calculate new WeeklyBudget object from form push to array and set as active.
   addToWeeklyBudgets(formResponse) {
     const startingDate: Date = new Date(
+      // 'T00:00:00' sets date to eastern standard time.
       formResponse.value.startingDate + 'T00:00:00'
     );
+    // Set endingDate to 6 days after form provided startingDate
     const endingDate = this.dateExtend.addDays(new Date(startingDate), 6);
+    // Add carryOver and tempSavings to calculate starting currentSpending
     const currentSpending =
       formResponse.value.carryOver + formResponse.value.tempSavingsAmount;
+    // Subtract currentSpending from spendingLimit to calculate remainingSpending
     const remainingSpending =
       formResponse.value.spendingLimit - currentSpending;
+    // Divide spendingLimit by 7 rounded down to calculate spendingPerDay
     const spendingPerDay = Math.floor(formResponse.value.spendingLimit / 7);
 
     const tempWeeklyBudget: WeeklyBudget = {
@@ -38,7 +44,6 @@ export class BudgetService {
       expenses: [],
     };
 
-    console.log(tempWeeklyBudget);
     this.weeklyBudgets.push(tempWeeklyBudget);
   }
 }

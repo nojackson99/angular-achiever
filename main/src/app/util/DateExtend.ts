@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DateExtend {
   constructor() {}
 
+  // Add days to param Date and return
   addDays(date: Date, days: number) {
     var result = new Date(date);
     result.setDate(result.getDate() + days);

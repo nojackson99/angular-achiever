@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BudgetService } from 'src/app/services/budget.service';
-import { WeeklyBudget } from 'src/app/models/weekly-budget.model';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -16,25 +15,10 @@ export class BudgetFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  model: WeeklyBudget = {
-    startingDate: new Date(),
-    endingDate: new Date(),
-    spendingLimit: 0,
-    currentSpending: 0,
-    remainingSpending: 0,
-    spendingPerDay: 0,
-    expenses: [],
-  };
-
-  submitted = false;
-
-  onSubmit() {
-    this.submitted = true;
-  }
-
+  // Bound to submit button on template form.
+  // Submit form and close modal.
   submit(formResponse) {
     this.budgetService.addToWeeklyBudgets(formResponse);
-
     this.dialog.closeAll();
   }
 }

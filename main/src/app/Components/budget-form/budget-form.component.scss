@@ -1,0 +1,46 @@
+.form-background {
+  background: #151515;
+  padding: 25px;
+  border-radius: 0.8em;
+}
+
+h1 {
+  color: #6964f6;
+  font-weight: bold;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+
+hr {
+  border-top: 1px solid #6964f6;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+// div wrapping each form input
+.form-field {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+label {
+  color: #757575;
+  font-size: large;
+  font-weight: bold;
+}
+
+input {
+  color: #ffffff;
+  font-size: large;
+}
+
+input:focus {
+  outline-style: none;
+  box-shadow: 0 0 10px #757575;
+}
+
+ion-button {
+  --background: #6964f6;
+  float: right;
+  margin-bottom: 25px;
+}

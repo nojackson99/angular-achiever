@@ -9,9 +9,7 @@ import { Profile } from '../../../models/profile.model';
   styleUrls: ['./home-tab.page.scss'],
 })
 export class HomePage implements OnInit {
-  activeProfileFirstName: string = null;
   activeProfile: Profile = null;
-  testResponse: any = null;
 
   constructor(
     private profileService: ProfileService,
@@ -19,7 +17,7 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeProfile = this.ActiveProfile;
+    this.activeProfile = this.profileService.ActiveProfile;
   }
 
   // Clear active profile and return user to app home
@@ -28,16 +26,6 @@ export class HomePage implements OnInit {
     this.profileService.activeProfile = null;
 
     this.navController.navigateRoot('/');
-  }
-
-  // Get active profile from profile.service
-  get ActiveProfile(): Profile {
-    if (this.profileService.activeProfile == null) {
-      // Call function to retrieve active profile from local storage
-      this.profileService.getActiveProfiles();
-    }
-
-    return this.profileService.activeProfile;
   }
 
   //! USED TO TEST LAMBDA NOT FOR ACTUAL APP FUNCTION
