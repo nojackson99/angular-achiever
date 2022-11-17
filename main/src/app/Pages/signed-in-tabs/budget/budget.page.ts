@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NewBudgetDialogComponent } from 'src/app/components/new-budget-dialog/new-budget-dialog.component';
+import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.component';
 
 @Component({
   selector: 'app-budget',
@@ -31,6 +31,6 @@ export class BudgetPage implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(NewBudgetDialogComponent);
+    this.dialog.open(BudgetFormComponent);
   }
 }
