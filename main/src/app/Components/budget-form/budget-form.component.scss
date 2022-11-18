@@ -7,12 +7,14 @@
 h1 {
   color: #6964f6;
   font-weight: bold;
+  // move title to the top left of heading
   margin-left: -15px;
   margin-top: -15px;
 }
 
 hr {
   border-top: 1px solid #6964f6;
+  // extend line break through parent div padding
   margin-left: -25px;
   margin-right: -25px;
 }
@@ -35,6 +37,7 @@ input {
 }
 
 input:focus {
+  // prevent orange outline on clicking input
   outline-style: none;
   box-shadow: 0 0 10px #757575;
 }
