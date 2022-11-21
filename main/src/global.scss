@@ -9,6 +9,9 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@import "../node_modules/@angular/material/theming";
+@include mat-core();
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -32,3 +35,14 @@
   background-color: #151515;
   border-radius: 0.8em;
 }
+
+// defining a custom theme for angular material components
+// LINKS:
+// material colors: https://m1.material.io/style/color.html#color-color-palette
+// video on how to implement:  https://www.youtube.com/watch?v=NugqJxFYmDM
+$my-primary: mat-palette($mat-deep-purple, A200);
+$my-accent: mat-palette($mat-light-green, 800);
+
+$my-theme: mat-light-theme($my-primary, $my-accent);
+
+@include angular-material-theme($my-theme);

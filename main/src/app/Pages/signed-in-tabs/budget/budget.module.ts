@@ -11,6 +11,7 @@ import { NewBudgetModalComponent } from 'src/app/components/new-budget-modal/new
 import { NewBudgetDialogComponent } from 'src/app/components/new-budget-dialog/new-budget-dialog.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.component';
+import { BudgetCardComponent } from 'src/app/components/budget-card/budget-card.component';
 
 @NgModule({
   imports: [
@@ -19,12 +20,9 @@ import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.
     IonicModule,
     BudgetPageRoutingModule,
     MaterialModule,
-  ],
-  declarations: [
-    BudgetPage,
-    NewBudgetModalComponent,
-    NewBudgetDialogComponent,
     BudgetFormComponent,
+    BudgetCardComponent,
   ],
+  declarations: [BudgetPage, NewBudgetModalComponent, NewBudgetDialogComponent],
 })
 export class BudgetPageModule {}

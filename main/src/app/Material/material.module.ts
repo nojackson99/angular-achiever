@@ -3,10 +3,17 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
-  imports: [MatDialogModule, MatButtonModule],
-  exports: [MatDialogModule, MatButtonModule],
+  imports: [],
+  exports: [
+    MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressBarModule,
+  ],
   declarations: [],
 })
 export class MaterialModule {}

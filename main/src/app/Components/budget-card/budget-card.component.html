@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header class="red-border">
+    <ion-grid class="pink-border">
+      <ion-row>
+        <ion-col class="blue-border">
+          <!-- formatted to left showing starting date -->
+          <mat-card-title>Example Date</mat-card-title>
+        </ion-col>
+        <ion-col class="blue-border">
+          <!-- formatted to right side shows money spent / total -->
+          <mat-card-title class="right">$60/$$$</mat-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-card-header>
+  <!-- a progress bar displaying spent / total -->
+  <mat-card-content>
+    <mat-progress-bar mode="determinate" value="40" color="primary">
+    </mat-progress-bar>
+  </mat-card-content>
+  <mat-card-actions>
+    <ion-button fill="solid" color="tertiary" style="justify-content: right"
+      >Expand Card</ion-button
+    >
+  </mat-card-actions>
+</mat-card>
