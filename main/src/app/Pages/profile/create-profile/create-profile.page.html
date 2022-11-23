@@ -17,7 +17,7 @@
           <!-- form with email and password -->
           <!-- on submit crates a new password in global profile object
           and navigates back to the homepage -->
-          <!-- [] todo: investigate template forms instead of reactive forms -->
+          <!-- TODO [X]: investigate template forms instead of reactive forms -->
           <form [formGroup]="createProfileForm" (ngSubmit)="submitForm()">
             <ion-item lines="full">
               <ion-label position="floating">First Name</ion-label>
@@ -29,30 +29,52 @@
             </ion-item>
             <ion-item lines="full">
               <ion-label position="floating">Email</ion-label>
-              <ion-input formControlName="email" type="text" required></ion-input>
+              <ion-input
+                formControlName="email"
+                type="text"
+                required
+              ></ion-input>
             </ion-item>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.email.errors?.required"
+            >
               Email is required.
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email">
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.email.errors?.email"
+            >
               Input must be in the form of an email.
             </span>
             <ion-item lines="full">
-              <!-- [] todo: default hidden with icon to show/hide text -->
+              <!-- TODO []: default hidden with icon to show/hide text -->
               <!-- tutorial: https://medium.com/learn-ionic-framework/create-a-show-hide-password-component-in-ionic-angular-a3960094726a -->
               <ion-label position="floating">Password</ion-label>
-              <ion-input formControlName="password" type="text" required></ion-input>
+              <ion-input
+                formControlName="password"
+                type="text"
+                required
+              ></ion-input>
             </ion-item>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.password.errors?.required"
+            >
               Password is required.
             </span>
-            <!-- [] todo: fixme - error text not showing when password is < 8 characters -->
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.minLength">
+            <!-- FIXME [] - error text not showing when password is < 8 characters -->
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.password.errors?.minLength"
+            >
               Password must be at least 8 characters in length.
             </span>
             <ion-row>
               <ion-col>
-                <ion-button type="submit" color="tertiary" expand="block">Submit</ion-button>
+                <ion-button type="submit" color="tertiary" expand="block"
+                  >Submit</ion-button
+                >
               </ion-col>
             </ion-row>
           </form>
@@ -60,5 +82,4 @@
       </ion-card>
     </div>
   </div>
-
 </ion-content>

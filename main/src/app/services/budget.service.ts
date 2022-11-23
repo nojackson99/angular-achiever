@@ -2,17 +2,54 @@ import { Injectable } from '@angular/core';
 import { WeeklyBudget } from '../models/weekly-budget.model';
 import { DateExtend } from '../util/dateExtend';
 
-// [x] todo: fix ending date so that it calculates properly based on starting date
-// [x] todo: serve form as a modal and capture input
-// [] todo: set up active budget week and display on budget page
-// [] todo: begin functionality for adding expenses to a budget object
+// TODO [X]: fix ending date so that it calculates properly based on starting date
+// TODO [X]: serve form as a modal and capture input
+// TODO []: set up active budget week and display on budget page
+// TODO []: begin functionality for adding expenses to a budget object
 
 @Injectable({
   providedIn: 'root',
 })
 export class BudgetService {
   // stores budget information for current active profile
-  weeklyBudgets: WeeklyBudget[] = [];
+  weeklyBudgets: WeeklyBudget[] = [
+    {
+      startingDate: new Date(),
+      endingDate: new Date(),
+      spendingLimit: 500,
+      currentSpending: 100,
+      remainingSpending: 400,
+      spendingPerDay: 65,
+      expenses: null,
+    },
+    {
+      startingDate: new Date(),
+      endingDate: new Date(),
+      spendingLimit: 400,
+      currentSpending: 200,
+      remainingSpending: 400,
+      spendingPerDay: 65,
+      expenses: null,
+    },
+    {
+      startingDate: new Date(),
+      endingDate: new Date(),
+      spendingLimit: 600,
+      currentSpending: 150,
+      remainingSpending: 400,
+      spendingPerDay: 65,
+      expenses: null,
+    },
+    {
+      startingDate: new Date(),
+      endingDate: new Date(),
+      spendingLimit: 100,
+      currentSpending: 67,
+      remainingSpending: 400,
+      spendingPerDay: 65,
+      expenses: null,
+    },
+  ];
   activeBudget: WeeklyBudget = null;
 
   constructor(private dateExtend: DateExtend) {}

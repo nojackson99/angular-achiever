@@ -1,45 +1,8 @@
-.red-border {
-  border-color: red;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.pink-border {
-  border-color: pink;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.blue-border {
-  border-color: blue;
-  border-width: 1px;
-  border-style: solid;
-}
-
 ion-grid {
-  margin-left: -30px;
-}
-
-mat-card-title.right {
-  text-align: right;
-}
-
-mat-card-actions {
-  justify-content: right;
-  display: flex;
-}
-
-mat-card-content {
-  padding-top: 10px;
-  margin-bottom: 5px;
-}
-
-mat-progress-bar {
-  height: 20px;
-}
-
-mat-card-title {
-  color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-top: 5px;
 }
 
 mat-card {
@@ -47,5 +10,37 @@ mat-card {
   padding-top: 0px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+mat-card-actions {
+  justify-content: right;
+  display: flex;
+  margin-right: 0px;
+}
+
+mat-card-content {
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0px !important;
+}
+
+mat-card-title {
+  color: white;
+}
+
+mat-card-title.right {
+  text-align: right;
+}
+
+mat-progress-bar {
+  height: 20px;
 }

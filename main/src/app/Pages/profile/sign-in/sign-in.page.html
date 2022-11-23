@@ -14,37 +14,56 @@
           <ion-card-title color="tertiary">Sign In</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <!-- [] todo: modularize this form and use as create profile and log in -->
-          <!-- [] todo: investigate template forms instead of reactive forms -->
+          <!-- TODO []: modularize this form and use as create profile and log in -->
+          <!-- TODO [X]: investigate template forms instead of reactive forms -->
           <form [formGroup]="signInForm" (ngSubmit)="submitForm()">
             <ion-item lines="full">
               <ion-label position="floating">Email</ion-label>
-              <ion-input formControlName="email" type="text" required></ion-input>
+              <ion-input
+                formControlName="email"
+                type="text"
+                required
+              ></ion-input>
             </ion-item>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-              Email is required.<br>
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.email.errors?.required"
+            >
+              Email is required.<br />
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email">
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.email.errors?.email"
+            >
               Input must be in the form of an email.
             </span>
             <span class="error ion-padding" *ngIf="signInFailed === true">
               Login or password is invalid.
             </span>
             <ion-item lines="full">
-              <!-- [] todo: default hidden with icon to show/hide text -->
+              <!-- TODO []: default hidden with icon to show/hide text -->
               <!-- tutorial: https://medium.com/learn-ionic-framework/create-a-show-hide-password-component-in-ionic-angular-a3960094726a -->
               <ion-label position="floating">Password</ion-label>
-              <ion-input formControlName="password" type="text" required></ion-input>
+              <ion-input
+                formControlName="password"
+                type="text"
+                required
+              ></ion-input>
             </ion-item>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
-              Password is required.<br>
+            <span
+              class="error ion-padding"
+              *ngIf="isSubmitted && errorControl.password.errors?.required"
+            >
+              Password is required.<br />
             </span>
             <span class="error ion-padding" *ngIf="signInFailed === true">
               Login or password is invalid.
             </span>
             <ion-row>
               <ion-col>
-                <ion-button type="submit" color="tertiary" expand="block">Sign In</ion-button>
+                <ion-button type="submit" color="tertiary" expand="block"
+                  >Sign In</ion-button
+                >
               </ion-col>
             </ion-row>
           </form>

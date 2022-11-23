@@ -12,7 +12,7 @@ export class ProfileService {
   // Signed in profile
   public activeProfile: Profile;
   // Tracks number of created profiles for id purposes.
-  // [] todo: replace references to this var with get numberOfProfiles()
+  // TODO []: replace references to this var with get numberOfProfiles()
   private createdProfiles: number = 0;
   // Source of truth for locally stored profiles
   private profiles: Profile[] = null;
