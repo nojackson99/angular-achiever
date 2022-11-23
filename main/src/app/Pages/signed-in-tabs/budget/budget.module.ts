@@ -7,11 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BudgetPageRoutingModule } from './budget-routing.module';
 
 import { BudgetPage } from './budget.page';
-import { NewBudgetModalComponent } from 'src/app/components/new-budget-modal/new-budget-modal.component';
-import { NewBudgetDialogComponent } from 'src/app/components/new-budget-dialog/new-budget-dialog.component';
-import { MaterialModule } from 'src/app/material/material.module';
-import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.component';
-import { BudgetCardComponent } from 'src/app/components/budget-card/budget-card.component';
+import { BudgetListComponent } from 'src/app/components/budget-list/budget-list.component';
 
 @NgModule({
   imports: [
@@ -19,10 +15,8 @@ import { BudgetCardComponent } from 'src/app/components/budget-card/budget-card.
     FormsModule,
     IonicModule,
     BudgetPageRoutingModule,
-    MaterialModule,
-    BudgetFormComponent,
-    BudgetCardComponent,
+    BudgetListComponent,
   ],
-  declarations: [BudgetPage, NewBudgetModalComponent, NewBudgetDialogComponent],
+  declarations: [BudgetPage],
 })
 export class BudgetPageModule {}
