@@ -10,14 +10,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-buttons>
-    <!-- open material angular dialog for creating a new weekly budget -->
-    <div>
-      <ion-button fill="solid" color="tertiary" (click)="openDialog()">
-        Open Budget Form
-      </ion-button>
-    </div>
-  </ion-buttons>
-
   <app-budget-list></app-budget-list>
+
+  <div>
+    <!-- open material angular dialog for creating a new weekly budget -->
+    <!-- TODO [] improve styling -->
+    <!-- make it bigger, fix the color, move to right side, make it float above cards -->
+    <button mat-fab color="primary" (click)="openDialog()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
 </ion-content>

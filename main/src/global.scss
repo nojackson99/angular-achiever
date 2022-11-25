@@ -36,11 +36,48 @@
   border-radius: 0.8em;
 }
 
+// create custom palette for coloring angular material elements
+// only hue used is 100 for the primary purple being used
+// source: https://stackoverflow.com/questions/41440998/how-can-i-use-custom-theme-palettes-in-angular
+$custom-purple: (
+  50: #ffffff,
+  100: #6964f6,
+  200: #fecdbd,
+  300: #fc9977,
+  400: #fc8259,
+  500: #fb6c3b,
+  600: #fa551d,
+  700: #f44205,
+  800: #d63a04,
+  900: #b83204,
+  A100: #ffffff,
+  A200: #fff7f4,
+  A400: #fc8259,
+  A700: #f44205,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  ),
+);
+
 // defining a custom theme for angular material components
 // LINKS:
 // material colors: https://m1.material.io/style/color.html#color-color-palette
 // video on how to implement:  https://www.youtube.com/watch?v=NugqJxFYmDM
-$my-primary: mat-palette($mat-deep-purple, A200);
+//$my-primary: mat-palette($mat-deep-purple, A200);
+$my-primary: mat-palette($custom-purple, 100);
 $my-accent: mat-palette($mat-light-green, 800);
 
 $my-theme: mat-light-theme($my-primary, $my-accent);
