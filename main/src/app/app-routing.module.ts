@@ -36,11 +36,11 @@ const routes: Routes = [
   },
   {
     path: 'details/:index',
-    component: BudgetDetailsPage,
-    // loadChildren: () =>
-    //   import('./pages/signed-in-tabs/budget/budget-details/budget-details.module').then(
-    //     (m) => m.BudgetDetailsPageModule
-    //   )
+    //component: BudgetDetailsPage,
+    loadChildren: () =>
+      import(
+        './pages/signed-in-tabs/budget/budget-details/budget-details.module'
+      ).then((m) => m.BudgetDetailsPageModule),
   },
 ];
 

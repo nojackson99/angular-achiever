@@ -27,7 +27,11 @@
     </mat-progress-bar>
   </mat-card-content>
   <mat-card-actions>
-    <ion-button fill="solid" color="tertiary" style="justify-content: right"
+    <ion-button
+      fill="solid"
+      color="tertiary"
+      style="justify-content: right"
+      (click)="navigate()"
       >Expand Card</ion-button
     >
     <p><a href="/details/{{ index }}">Open Details</a></p>
