@@ -25,12 +25,6 @@ hr {
   padding-bottom: 10px;
 }
 
-label {
-  color: #757575;
-  font-size: large;
-  font-weight: bold;
-}
-
 input {
   color: #ffffff;
   font-size: large;
@@ -46,4 +40,15 @@ ion-button {
   --background: #6964f6;
   float: right;
   margin-bottom: 25px;
+}
+
+label {
+  color: #757575;
+  font-size: large;
+  font-weight: bold;
+}
+
+span {
+  color: white;
+  font-size: 20px;
 }

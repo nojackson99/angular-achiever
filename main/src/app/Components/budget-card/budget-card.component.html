@@ -1,23 +1,21 @@
 <mat-card>
-  <mat-card-header class="red-border">
-    <ion-grid class="pink-border">
+  <mat-card-header>
+    <ion-grid>
       <ion-row>
-        <ion-col class="blue-border">
-          <!-- formatted to left showing starting date -->
+        <ion-col>
+          <!-- Aligned left, showing starting date. -->
           <mat-card-title>{{ budget.dateDisplay }}</mat-card-title>
         </ion-col>
-        <ion-col class="blue-border">
-          <!-- formatted to right side shows money spent / total -->
-          <mat-card-title class="right"
-            >${{ budget.currentSpending }}/${{
-              budget.spendingLimit
-            }}</mat-card-title
-          >
+        <ion-col>
+          <!-- Aligned right, displays money spent / total. -->
+          <mat-card-title class="right">
+            ${{ budget.currentSpending }} / ${{ budget.spendingLimit }}
+          </mat-card-title>
         </ion-col>
       </ion-row>
     </ion-grid>
   </mat-card-header>
-  <!-- a progress bar displaying spent / total -->
+  <!-- A progress bar displaying spent / total. -->
   <mat-card-content>
     <mat-progress-bar
       mode="determinate"
@@ -27,13 +25,13 @@
     </mat-progress-bar>
   </mat-card-content>
   <mat-card-actions>
+    <!-- Button to open detail view for card. -->
     <ion-button
       fill="solid"
       color="tertiary"
       style="justify-content: right"
-      (click)="navigate()"
+      (click)="onExpandCard()"
       >Expand Card</ion-button
     >
-    <p><a href="/details/{{ index }}">Open Details</a></p>
   </mat-card-actions>
 </mat-card>

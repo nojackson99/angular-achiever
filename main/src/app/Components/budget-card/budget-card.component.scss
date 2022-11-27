@@ -29,6 +29,7 @@ mat-card-content {
   margin-bottom: 5px;
 }
 
+// Unused card element, margin is removed.
 :host ::ng-deep .mat-card-header-text {
   margin: 0px !important;
 }
