@@ -1,4 +1,5 @@
 <budget-card
-  *ngFor="let budget of budgetService.weeklyBudgets"
+  *ngFor="let budget of budgetService.weeklyBudgets; let i = index"
+  [index]="i"
   [budget]="budget"
 ></budget-card>

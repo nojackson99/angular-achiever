@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: 'budget',
         loadChildren: () =>
-          import('./budget/budget-list/budget.module').then(
+          import('./budget/budget-list/budget-list.module').then(
             (m) => m.BudgetPageModule
           ),
       },

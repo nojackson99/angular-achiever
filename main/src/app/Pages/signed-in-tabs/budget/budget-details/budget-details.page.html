@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
-
+  <article *ngIf="(weeklyBudget$ | async) as budget">
+    <p>date: {{budget.dateDisplay}}</p>
+    <p>current spending: {{budget.currentSpending}}</p>
+    <p>remaining spending: {{budget.remainingSpending}}</p>
+    <p>spending limit: {{budget.spendingLimit}}</p>
+  </article>
+  <!-- MVP PLANS: 
+       - list of expenses
+       - show category, expense name, and cost
+       - ability to edit and delete -->
 </ion-content>

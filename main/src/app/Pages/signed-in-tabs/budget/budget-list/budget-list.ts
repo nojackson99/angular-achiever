@@ -7,8 +7,8 @@ import { Profile } from 'src/app/models/profile.model';
 
 @Component({
   selector: 'app-budget',
-  templateUrl: './budget.page.html',
-  styleUrls: ['./budget.page.scss'],
+  templateUrl: './budget-list.page.html',
+  styleUrls: ['./budget-list.scss'],
 })
 export class BudgetPage implements OnInit {
   activeProfile: Profile = null;

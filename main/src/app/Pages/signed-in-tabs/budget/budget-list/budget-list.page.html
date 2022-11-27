@@ -10,11 +10,14 @@
 </ion-header>
 
 <ion-content>
+  <!-- TODO [] set up web vs mobile view -->
+  <!-- web view creates 3 columns center column has cards -->
+  <!-- web view has add new budget button in column while mobile has fab -->
   <app-budget-list></app-budget-list>
 
   <div>
     <!-- open material angular dialog for creating a new weekly budget -->
-    <!-- TODO [] improve styling -->
+    <!-- TODO [] improve fab styling -->
     <!-- make it bigger, fix the color, move to right side, make it float above cards -->
     <button mat-fab color="primary" (click)="openDialog()">
       <mat-icon>add_circle</mat-icon>
