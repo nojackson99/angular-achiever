@@ -10,10 +10,24 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="isMobile">
+    <app-budget-list></app-budget-list>
+  </div>
+  <div *ngIf="isWeb">
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col size="6">
+          <app-budget-list></app-budget-list>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
   <!-- TODO [] set up web vs mobile view -->
   <!-- web view creates 3 columns center column has cards -->
   <!-- web view has add new budget button in column while mobile has fab -->
-  <app-budget-list></app-budget-list>
+  <!-- <app-budget-list></app-budget-list> -->
 
   <div>
     <!-- open material angular dialog for creating a new weekly budget -->

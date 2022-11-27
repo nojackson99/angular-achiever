@@ -4,6 +4,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BudgetFormComponent } from 'src/app/components/budget-form/budget-form.component';
 import { Profile } from 'src/app/models/profile.model';
+import { CheckPlatform } from 'src/app/util/CheckPlatform';
 
 @Component({
   selector: 'app-budget',
@@ -12,11 +13,14 @@ import { Profile } from 'src/app/models/profile.model';
 })
 export class BudgetPage implements OnInit {
   activeProfile: Profile = null;
+  isMobile: boolean = this.checkPlatform.isMobile;
+  isWeb: boolean = this.checkPlatform.isWeb;
 
   constructor(
     private profileService: ProfileService,
     private navController: NavController,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private checkPlatform: CheckPlatform
   ) {}
 
   ngOnInit() {
