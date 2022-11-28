@@ -1,18 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>budget-details</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- 
+  Using an async pipe here, this allows accessing weeklyBudget$ observable
+  without having to subscribe to it. Using ngIf to check if data exists and set
+  the data to budget. Then access the values with budget.[value].
 
-<ion-content>
-  <article *ngIf="(weeklyBudget$ | async) as budget">
-    <p>date: {{budget.dateDisplay}}</p>
-    <p>current spending: {{budget.currentSpending}}</p>
-    <p>remaining spending: {{budget.remainingSpending}}</p>
-    <p>spending limit: {{budget.spendingLimit}}</p>
-  </article>
-  <!-- MVP PLANS: 
+  The values of weeklyBudget$ are needed in multiple places so wrapping the entire
+  template in an ng-container allows that assignment. And the object can be
+  accessed throughout the container. Using the async pipe in each place the data
+  is needed would 1. clutter the template unnecessarily 2. lead to multiple
+  subscriptions to weeklyBudget$ where they aren't needed.
+
+  ng-container allows for using ng directives without adding an extra node to the
+  dom with a <div> tag.
+-->
+<ng-container *ngIf="(weeklyBudget$ | async) as budget">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/signed-in-home/tabs/budget">
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">
+        {{ budget.startingDateDisplay }} - {{ budget.endingDateDisplay }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <article *ngIf="(weeklyBudget$ | async) as budget">
+      <p>date: {{ budget.startingDateDisplay }}</p>
+      <p>current spending: {{budget.currentSpending}}</p>
+      <p>remaining spending: {{budget.remainingSpending}}</p>
+      <p>spending limit: {{budget.spendingLimit}}</p>
+    </article>
+    <!-- MVP PLANS: 
        - list of expenses
        - show category, expense name, and cost
        - ability to edit and delete -->
-</ion-content>
+  </ion-content>
+</ng-container>

@@ -19,8 +19,10 @@ export class BudgetDetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    // TODO []: document what this code is doing
     this.weeklyBudget$ = this.route.paramMap.pipe(
       map((params) => {
+        // return weeklyBudgets at clicked index ex: weeklyBudgets[0]
         return this.budgetService.weeklyBudgets[Number(params.get('index'))];
       })
     );
